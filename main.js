@@ -117,32 +117,39 @@ function updateNumberOfItems(){
    })
 }
 
-function removeItems(){
+function removeItems() {
     let removeBtn = document.querySelectorAll('.btn-danger');
     removeBtn = [...removeBtn];
     removeBtn.forEach(btn => {
-        btn.addEventListener('click', event=> {
-            //Get product name
-            let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;      
-            
-            //Search product with this name
+        btn.addEventListener('click', event => {
+            // Get product name
+            let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;
+
+            // Search product with this name
             let actualProductObject = shoppingCartArray.find(item => item.title == actualProductTitle);
-            console.log(actualProductObject)
-            
-            //Refresh item product ESTO NO ME VAAAAA
-            //actualProductObject.quantity = 1;
-            
-            //Remove cart product
-            shoppingCartArray = shoppingCartArray.filter(item => item != actualProductObject);
-            //Refresh products on chart
-            drawItems()
-            //Actual price
-            getTotal()
-            //Update number of items
-            updateNumberOfItems()
-        })
-    })
+
+            // Refresh item product
+            if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
+                actualProductObject = { quantity: 1 };
+            } else {
+                actualProductObject.quantity = 1;
+            }
+
+            // Remove cart product
+            shoppingCartArray = shoppingCartArray.filter(item => item !== actualProductObject);
+
+            // Refresh products on chart
+            drawItems();
+
+            // Actual price
+            getTotal();
+
+            // Update number of items
+            updateNumberOfItems();
+        });
+    });
 }
+
 
 const imagen = document.querySelectorAll('.shop-item-image');
 console.log(imagen)
