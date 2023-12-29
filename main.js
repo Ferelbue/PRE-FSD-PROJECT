@@ -13,7 +13,6 @@ let productsArray = data.slice(9 ,13)
 
 //Print products 
 productsArray.forEach(product => {
-    console.log(product)
     productContainer.innerHTML += `
     <div class="shop-item" id="${product.id}">
         <span class="shop-item-title">${product.title}</span>
@@ -29,20 +28,17 @@ productsArray.forEach(product => {
 let addBtns = document.querySelectorAll('.shop-item-button');
 addBtns = [...addBtns];
 
-
 //Add products on chart
 let cartContainer = document.querySelector('.cart-items');
 addBtns.forEach(btn=>{
     btn.addEventListener('click', event => {
         //Search product id
         let actualID = parseInt((event.target.parentNode.parentNode.id));
-        console.log(actualID);
         //Find product by id
         let actualProduct= productsArray.find(item => item.id == actualID)
         if(actualProduct.quantity == undefined){
         actualProduct.quantity = 1;
         }
-        console.log(actualProduct.id)
         //product already on cart?
         let existe = false
         shoppingCartArray.forEach(product => {
@@ -94,13 +90,19 @@ function drawItems(){
             </div>
         </div>`
         });
+
+        // //Drag and Drop 
+        // const imagen = productElement.querySelector('.shop-item-image');
+        // imagen.addEventListener('dragstart', e => {
+        // console.log('Drag Start');
+        // })
+
         //Remove Items
         removeItems()
 }
 function updateNumberOfItems(){
     let inputNumber = document.querySelectorAll('.cart-quantity-input');
     inputNumber = [...inputNumber]
-    console.log(inputNumber)
     inputNumber.forEach(item => {
         item.addEventListener('click', (event)=>{
             //Get product name
@@ -148,9 +150,15 @@ function removeItems(){
     })
 }
 
-const imagen = document.querySelectorAll('.shop-item-image');
-console.log(imagen)
-//imagen.addEventListener('dragstart', e => {
-  //  console.log('Drag Start')
+const productImages = document.querySelectorAll('.shop-item-image');
 
-//})
+// Agrega el evento dragstart a cada imagen de producto
+productImages.forEach(imagen => {
+    imagen.addEventListener('dragstart', event => {
+        // Configura los datos de transferencia del arrastre
+        console.log('Dragstart')
+        console.log(imagen)
+        event.dataTransfer.setData('text/plain', imagen.src);
+        //console.log(e.dataTransfer.setData)
+    });
+});
