@@ -126,18 +126,14 @@ function removeItems(){
         btn.addEventListener('click', event=> {
             //Get product name
             let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;      
-            
             //Search product with this name
             let actualProductObject = shoppingCartArray.find(item => item.title == actualProductTitle);
-            
-            //Refresh item product ESTO NO ME VAAAAA
-                        // Refresh item product
-                        if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
-                            actualProductObject = { quantity: 1 };
-                        } else {
-                            actualProductObject.quantity = 1;
-                        }
-            
+            //Return quantity to 1 after remove item
+            if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
+                actualProductObject = { quantity: 1 };
+            } else {
+                 actualProductObject.quantity = 1;
+            }
             //Remove cart product
             shoppingCartArray = shoppingCartArray.filter(item => item != actualProductObject);
             //Refresh products on chart
@@ -150,15 +146,38 @@ function removeItems(){
     })
 }
 
-const productImages = document.querySelectorAll('.shop-item-image');
 
-// Agrega el evento dragstart a cada imagen de producto
-productImages.forEach(imagen => {
-    imagen.addEventListener('dragstart', event => {
-        // Configura los datos de transferencia del arrastre
-        console.log('Dragstart')
-        console.log(imagen)
-        event.dataTransfer.setData('text/plain', imagen.src);
-        //console.log(e.dataTransfer.setData)
+//DragandDrop
+let imgMove = document.querySelectorAll('.shop-item');
+imgMove = [...imgMove];
+imgMove.forEach(move=>{
+    move.addEventListener('dragstart', event => {
+        let newID = event.target.parentNode.id;
+        console.log('Dragstart');
+        event.dataTransfer.setData('IDinf', newID); 
+    });
+    move.addEventListener('dragend', event => {
+    //console.log('Dragend');
+    });
+    move.addEventListener('drag', event => {
+    //console.log('Drag');
     });
 });
+const cartImage = document.querySelector('.shopping-cart');
+cartImage.addEventListener('dragenter', event => {
+    //console.log('Drag Enter');  
+});
+cartImage.addEventListener('dragleave', event => {
+    //console.log('Drag Leave');  
+});
+cartImage.addEventListener('dragover', event => {
+    event.preventDefault();
+    //console.log('Drag Over');
+});
+cartImage.addEventListener('drop', event => {
+    const data = event.dataTransfer.getData('IDinf');
+    const newID = parseInt(data);
+    console.log(newID);
+});
+
+
