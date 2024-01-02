@@ -28,7 +28,7 @@ productsArray.forEach(product => {
 let addBtns = document.querySelectorAll('.shop-item-button');
 addBtns = [...addBtns];
 
-//Add products on chart
+//Add products on chart with click
 let cartContainer = document.querySelector('.cart-items');
 addBtns.forEach(btn=>{
     btn.addEventListener('click', event => {
@@ -65,6 +65,70 @@ addBtns.forEach(btn=>{
     });
 });
 
+//Add products on chart with Drag and Drop
+let imgMove = document.querySelectorAll('.shop-item');
+imgMove = [...imgMove];
+imgMove.forEach(move=>{
+    move.addEventListener('dragstart', event => {
+        let newID = event.target.parentNode.id;
+        console.log('Dragstart');
+        event.dataTransfer.setData('IDinf', newID); 
+    });
+    move.addEventListener('dragend', event => {
+    //console.log('Dragend');
+    });
+    move.addEventListener('drag', event => {
+    //console.log('Drag');
+    });
+});
+const cartImage = document.querySelector('.shopping-cart');
+cartImage.addEventListener('dragenter', event => {
+    //console.log('Drag Enter');  
+});
+cartImage.addEventListener('dragleave', event => {
+    //console.log('Drag Leave');  
+});
+cartImage.addEventListener('dragover', event => {
+    event.preventDefault();
+    //console.log('Drag Over');
+});
+cartImage.addEventListener('drop', event => {
+    const data = event.dataTransfer.getData('IDinf');
+    const newID = parseInt(data);
+
+    let actualProduct= productsArray.find(item => item.id == newID)
+    if(actualProduct.quantity == undefined){
+    actualProduct.quantity = 1;
+    }
+    //product already on cart?
+    let existe = false
+    shoppingCartArray.forEach(product => {
+    
+        if(newID == product.id){
+        existe = true
+       }
+    })
+
+    if(existe){
+        actualProduct.quantity++
+    }
+    else{
+        shoppingCartArray.push(actualProduct) 
+    }
+        //Add products on chart
+        drawItems()
+        //Actual price
+        getTotal()
+        //Update number of items
+        updateNumberOfItems()
+        //Remove Items
+        removeItems()
+
+});
+
+
+
+
 function getTotal(){
     let sumTotal
     let total = shoppingCartArray.reduce((sum, item)=>{
@@ -90,12 +154,6 @@ function drawItems(){
             </div>
         </div>`
         });
-
-        // //Drag and Drop 
-        // const imagen = productElement.querySelector('.shop-item-image');
-        // imagen.addEventListener('dragstart', e => {
-        // console.log('Drag Start');
-        // })
 
         //Remove Items
         removeItems()
@@ -145,39 +203,3 @@ function removeItems(){
         })
     })
 }
-
-
-//DragandDrop
-let imgMove = document.querySelectorAll('.shop-item');
-imgMove = [...imgMove];
-imgMove.forEach(move=>{
-    move.addEventListener('dragstart', event => {
-        let newID = event.target.parentNode.id;
-        console.log('Dragstart');
-        event.dataTransfer.setData('IDinf', newID); 
-    });
-    move.addEventListener('dragend', event => {
-    //console.log('Dragend');
-    });
-    move.addEventListener('drag', event => {
-    //console.log('Drag');
-    });
-});
-const cartImage = document.querySelector('.shopping-cart');
-cartImage.addEventListener('dragenter', event => {
-    //console.log('Drag Enter');  
-});
-cartImage.addEventListener('dragleave', event => {
-    //console.log('Drag Leave');  
-});
-cartImage.addEventListener('dragover', event => {
-    event.preventDefault();
-    //console.log('Drag Over');
-});
-cartImage.addEventListener('drop', event => {
-    const data = event.dataTransfer.getData('IDinf');
-    const newID = parseInt(data);
-    console.log(newID);
-});
-
-
