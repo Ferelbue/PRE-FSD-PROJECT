@@ -126,7 +126,19 @@ cartImage.addEventListener('drop', event => {
 
 });
 
+//Purchase buton funtionality
+let purchaseBtn = document.querySelector('.btn-purchase');
+    purchaseBtn.addEventListener('click', event=> {
+        let sumTotal
+        let total = shoppingCartArray.reduce((sum, item)=>{
+            sumTotal = sum + item.quantity*item.price
+            return sumTotal
+        } , 0);
+    totalElement.innerText = `${total}€`
 
+alert('YOU HAVE TO PAY ' + total + '€');
+location.reload();
+})
 
 
 function getTotal(){

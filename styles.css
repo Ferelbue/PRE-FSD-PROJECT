@@ -16,7 +16,7 @@
 .section-header2 {
     font-family: cursive;
     font-weight: normal;
-    color: #f3a704;
+    color: #000000;
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 0px;
@@ -27,8 +27,8 @@
     height: auto;
     display: block;
     margin: auto;
-    border: solid;
-    border-radius: 1;
+    border: 1px dashed;
+    border-radius: 100;
     border-color:#f3a704;
     margin-bottom: 20px;
 }
