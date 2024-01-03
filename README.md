@@ -1,9 +1,10 @@
+
 ## TABLE OF CONTENTS
 
-1. [Introduction](#Introduction) :ok_hand:
-2. [Tecnhologies](#Tecnhologies) :floppy_disk:
-2. [Getting started](#Getting-started) :rocket:
-3. [Launch](#Launch)
+1. [Introduction](#introduction) :ok_hand:
+2. [Tecnhologies](#tecnhologies) :floppy_disk:
+2. [Getting started](#getting-started) :rocket:
+3. [Launch](#launch)
 
 
 ***
@@ -33,3 +34,5 @@ Finally, to launch and enjoy the aplication you must to:
 - Open the file *index.html* in visual studio code and ejecute it with live server.
 
 ***
+
+[Top of document](#table-of-contents)
