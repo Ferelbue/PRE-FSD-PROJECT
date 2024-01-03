@@ -28,6 +28,8 @@ To ejecute this app you must to have in your computer:
 ***
 
 ### Launch
-Finally, to launch and enjoy the aplication you must to download the folder of my github profile
+Finally, to launch and enjoy the aplication you must to:
+- Download the folder **PROYECTO** of my github profile [Fernando](https://github.com/Ferelbue/proyecto/tree/ramab).
+- Open the file *index.html* in visual studio code and ejecute it with live server.
 
 ***
