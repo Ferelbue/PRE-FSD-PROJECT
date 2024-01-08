@@ -31,7 +31,7 @@ To ejecute this app you must have in your computer:
 ### Launch
 Finally, to launch and enjoy the aplication you should follow the following steps:
 - Download the folder **PROYECTO** of my github profile [Fernando](https://github.com/Ferelbue/proyecto/tree/ramab).
-- Open the file *index.html* in visual studio code and ejecute it with live server.
+- In visual studio code, select and do right click in the file *index.html*, and click in "Open with Live Server", and a Internet Browser window will be opened.
 
 ***
 
