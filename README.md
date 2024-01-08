@@ -25,7 +25,9 @@ Technologies used within the project:
 To ejecute this app you must have in your computer:
 - Internet conexion
 - Visual Studio Code
+- Live Server Extension Installed in Visual Studio Code
 - Git Hub repository
+
 ***
 
 ### Launch
