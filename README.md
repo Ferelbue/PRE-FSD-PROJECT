@@ -9,27 +9,27 @@
 
 ***
 ### Introduction
-This is the final proyect of the pre full stack developer bootcamp of GeekHubs Academy. 
-Consist in a html 5 aplication who reads data of an open API. In this app the client can simulate a sopping cart where he can add products using the buttons or dragging the image to the sopping cart.
+This is the final project of the GeekHubs Academy full-stack developer bootcamp.
+It consists of an HTML5 application that reads data from an open API. In this application the client can simulate a shopping cart where products can be added using the buttons or by dragging the image to the shopping cart.
 ***
 
 ### Tecnhologies
 Technologies used within the project:
-* HTML 5
-* CSS 3
-* JAVA SCRIPT
+* HTML5
+* CSS3
+* JAVASCRIPT
 
 
 ***
 ### Getting-started
-To ejecute this app you must to have in your computer:
+To ejecute this app you must have in your computer:
 - Internet conexion
-- Visual Studio Code software
+- Visual Studio Code
 - Git Hub repository
 ***
 
 ### Launch
-Finally, to launch and enjoy the aplication you must to:
+Finally, to launch and enjoy the aplication you should follow the following steps:
 - Download the folder **PROYECTO** of my github profile [Fernando](https://github.com/Ferelbue/proyecto/tree/ramab).
 - Open the file *index.html* in visual studio code and ejecute it with live server.
 
