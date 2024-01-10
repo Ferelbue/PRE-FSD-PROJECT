@@ -9,7 +9,7 @@
 
 ***
 ### Introduction
-This is the final project of the GeekHubs Academy full-stack developer bootcamp.
+This is the final project of the pre full-stack developer bootcamp of GeekHubs Academy.
 It consists of an HTML5 application that reads data from an open API. In this application the client can simulate a shopping cart where products can be added using the buttons or by dragging the image to the shopping cart.
 ***
 
