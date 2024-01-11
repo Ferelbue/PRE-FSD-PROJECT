@@ -161,7 +161,7 @@ function drawItems(){
             </div>
             <span class="cart-price cart-column">${item.price}€</span>
             <div class="cart-quantity cart-column">
-                <input class="cart-quantity-input" min="1" type="number" value="${item.quantity}">
+                <input class="cart-quantity-input" min="0" type="number" value="${item.quantity}">
                 <button class="btn-danger" type="button">REMOVE</button>
             </div>
         </div>`
@@ -185,6 +185,28 @@ function updateNumberOfItems(){
             actualProductObject.quantity = actualProductQuantity;
             //Refresh price
             getTotal()
+
+            if (actualProductObject.quantity == 0){
+                let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;      
+                //Search product with this name
+                let actualProductObject = shoppingCartArray.find(item => item.title == actualProductTitle);
+                //Return quantity to 1 after remove item
+
+            if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
+                actualProductObject = { quantity: 1 };
+            } else {
+                 actualProductObject.quantity = 1;
+            }
+            //Remove cart product
+            shoppingCartArray = shoppingCartArray.filter(item => item != actualProductObject);
+            //Refresh products on chart
+            drawItems()
+            //Actual price
+            getTotal()
+
+            }else{
+
+            }
         });
    })
 }
