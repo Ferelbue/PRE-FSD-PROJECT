@@ -16,7 +16,7 @@ productsArray.forEach(product => {
     productContainer.innerHTML += `
     <div class="shop-item" id="${product.id}">
         <span class="shop-item-title">${product.title}</span>
-        <img class="shop-item-image" src="${product.image}" draggable="true" alt="BtnImg">
+        <img class="shop-item-image" src="${product.image}" draggable="true">
         <div class="shop-item-details">
         <span class="shop-item-price">${product.price}€</span>
         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -27,9 +27,6 @@ productsArray.forEach(product => {
 //Listen to click on button add to chart
 let addBtns = document.querySelectorAll('.shop-item-button');
 addBtns = [...addBtns];
-
-
-
 
 //Add products on chart with click
 let cartContainer = document.querySelector('.cart-items');
@@ -194,7 +191,8 @@ function updateNumberOfItems(){
                 //Search product with this name
                 let actualProductObject = shoppingCartArray.find(item => item.title == actualProductTitle);
                 //Return quantity to 1 after remove item
-
+            //Get product name
+            //Return quantity to 1 after remove item
             if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
                 actualProductObject = { quantity: 1 };
             } else {
@@ -206,10 +204,10 @@ function updateNumberOfItems(){
             drawItems()
             //Actual price
             getTotal()
+            //Update number of items
+            updateNumberOfItems()
 
-            }else{
-
-            }
+             }
         });
    })
 }
@@ -241,7 +239,6 @@ function removeItems(){
     })
 }
 
-
 function esDispositivoMovil() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
@@ -249,7 +246,7 @@ if (esDispositivoMovil()) {
     let addImg = document.querySelectorAll('.shop-item-image');
     addImg = [...addImg];
 
-    //Add products on chart with click on a Mobile
+//Add products on chart with click on a Mobile
     addImg.forEach(btn=>{
     
         btn.addEventListener('click', event => {
@@ -259,7 +256,6 @@ if (esDispositivoMovil()) {
         
             //Find product by id
             let actualProduct= productsArray.find(item => item.id == actualID)
-
                 if(actualProduct.quantity == undefined){
                 actualProduct.quantity = 1;
                 }
@@ -287,5 +283,5 @@ if (esDispositivoMovil()) {
         //Remove Items
         removeItems()
         });
-    });
+});
 } 
