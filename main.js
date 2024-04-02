@@ -161,7 +161,11 @@ function drawItems(){
             </div>
             <span class="cart-price cart-column">${item.price}€</span>
             <div class="cart-quantity cart-column">
+<<<<<<< HEAD
                 <input class="cart-quantity-input" min="0" type="number" value="${item.quantity}">
+=======
+                <input class="cart-quantity-input" min="1" type="number" value="${item.quantity}">
+>>>>>>> ramab
                 <button class="btn-danger" type="button">REMOVE</button>
             </div>
         </div>`
@@ -185,6 +189,7 @@ function updateNumberOfItems(){
             actualProductObject.quantity = actualProductQuantity;
             //Refresh price
             getTotal()
+<<<<<<< HEAD
 
             if (actualProductObject.quantity == 0){
                 let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;      
@@ -208,6 +213,8 @@ function updateNumberOfItems(){
             updateNumberOfItems()
 
              }
+=======
+>>>>>>> ramab
         });
    })
 }
@@ -237,6 +244,7 @@ function removeItems(){
             updateNumberOfItems()
         })
     })
+<<<<<<< HEAD
 }
 
 function esDispositivoMovil() {
@@ -285,3 +293,6 @@ if (esDispositivoMovil()) {
         });
 });
 } 
+=======
+}
+>>>>>>> ramab
