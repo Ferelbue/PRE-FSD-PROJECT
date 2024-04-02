@@ -1,4 +1,6 @@
-
+# DRAG AND DROP - SHOPPING CART
+![alt text](image-1.png)
+***
 ## TABLE OF CONTENTS
 
 1. [Introduction](#introduction) :ok_hand:
