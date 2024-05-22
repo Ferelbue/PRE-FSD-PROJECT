@@ -161,11 +161,7 @@ function drawItems(){
             </div>
             <span class="cart-price cart-column">${item.price}€</span>
             <div class="cart-quantity cart-column">
-<<<<<<< HEAD
-                <input class="cart-quantity-input" min="0" type="number" value="${item.quantity}">
-=======
                 <input class="cart-quantity-input" min="1" type="number" value="${item.quantity}">
->>>>>>> ramab
                 <button class="btn-danger" type="button">REMOVE</button>
             </div>
         </div>`
@@ -189,32 +185,6 @@ function updateNumberOfItems(){
             actualProductObject.quantity = actualProductQuantity;
             //Refresh price
             getTotal()
-<<<<<<< HEAD
-
-            if (actualProductObject.quantity == 0){
-                let actualProductTitle = event.target.parentElement.parentElement.childNodes[1].innerText;      
-                //Search product with this name
-                let actualProductObject = shoppingCartArray.find(item => item.title == actualProductTitle);
-                //Return quantity to 1 after remove item
-            //Get product name
-            //Return quantity to 1 after remove item
-            if (actualProductObject === undefined || actualProductObject.quantity === undefined) {
-                actualProductObject = { quantity: 1 };
-            } else {
-                 actualProductObject.quantity = 1;
-            }
-            //Remove cart product
-            shoppingCartArray = shoppingCartArray.filter(item => item != actualProductObject);
-            //Refresh products on chart
-            drawItems()
-            //Actual price
-            getTotal()
-            //Update number of items
-            updateNumberOfItems()
-
-             }
-=======
->>>>>>> ramab
         });
    })
 }
@@ -244,55 +214,4 @@ function removeItems(){
             updateNumberOfItems()
         })
     })
-<<<<<<< HEAD
 }
-
-function esDispositivoMovil() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-if (esDispositivoMovil()) {
-    let addImg = document.querySelectorAll('.shop-item-image');
-    addImg = [...addImg];
-
-//Add products on chart with click on a Mobile
-    addImg.forEach(btn=>{
-    
-        btn.addEventListener('click', event => {
-
-            //Search product id
-            let actualID = parseInt((event.target.parentNode.id));
-        
-            //Find product by id
-            let actualProduct= productsArray.find(item => item.id == actualID)
-                if(actualProduct.quantity == undefined){
-                actualProduct.quantity = 1;
-                }
-                //product already on cart?
-        let existe = false
-        shoppingCartArray.forEach(product => {
-        
-            if(actualID == product.id){
-            existe = true
-           }
-        })
-
-        if(existe){
-            actualProduct.quantity++
-        }
-        else{
-            shoppingCartArray.push(actualProduct) 
-        }
-        //Add products on chart
-        drawItems()
-        //Actual price
-        getTotal()
-        //Update number of items
-        updateNumberOfItems()
-        //Remove Items
-        removeItems()
-        });
-});
-} 
-=======
-}
->>>>>>> ramab
